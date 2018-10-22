@@ -1,0 +1,33 @@
+// Colors
+$theme-color: #dedede;
+$second-color: #999;
+$third-color: #333;
+$link-color: #796eff;
+// Padding
+$gutter-main : 30px !default;
+
+
+// Distance
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+) !default;
+
+@include _assert-ascending($breakpoints, "$breakpoints");
+@include _assert-starts-at-zero($breakpoints);
+
+
+$maxwidths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px
+) !default;
+
+@include _assert-ascending($maxwidths, "$maxwidths");
+
+// Column Defines
+$columns: 12 !default;

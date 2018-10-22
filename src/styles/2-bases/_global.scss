@@ -1,0 +1,12 @@
+*, *:before, *:after, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    color: $link-color;
+}
+body {
+    font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+}
+
