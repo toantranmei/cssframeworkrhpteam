@@ -1,0 +1,44 @@
+.options {
+    position: relative;
+    .image-svg {
+        &:before {
+            background: url(../images/stick-notes.png) no-repeat 50%;
+            background-size: contain;
+            content: "";
+            height: 170px;
+            position: absolute;
+            top: 96px;
+            width: 100%;
+        }
+        .options--image {
+            box-shadow: 0 30px 50px 0 rgba(34,43,55,.1);
+            display: block;
+            position: relative;
+            max-width: 1210px;
+            margin-left: auto;
+            margin-right: auto;
+            &:before {
+                background: url(../images/think01.png) no-repeat 50%;
+                background-size: contain;
+                position: absolute;
+                content: "";
+                display: block;
+                height: 275px;
+                width: 313px;
+                left: -210px;
+                bottom: -56px;
+            }
+            &:after {
+                background: url(../images/think02.png) no-repeat 50%;
+                background-size: contain;
+                position: absolute;
+                content: "";
+                display: block;
+                height: 282px;
+                width: 333px;
+                right: -210px;
+                bottom: -56px;
+            }
+        }
+    }
+}

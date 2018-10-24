@@ -1,0 +1,28 @@
+.section {
+    &.banner {
+        padding-top: 128px;
+        padding-bottom: 96px;
+        text-align: center;
+        .banner--title {
+            .h1 {
+                font-size: 2.8125rem;
+            }
+            .desc {
+                font-size: 1.375rem;
+                line-height: 1.636;
+            }
+        }
+    }
+    .signupform {
+        .signupform--container {
+            max-width: 550px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            .signupform--email {
+                margin-right: 32px;
+                width: 100%;
+            }
+        }
+    }
+}

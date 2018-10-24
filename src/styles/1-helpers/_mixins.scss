@@ -13,8 +13,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    padding-left: ($gutter-main / 2);
-    padding-right: ($gutter-main / 2);
+    margin-left: -($gutter-main / 2);
+    margin-right: -($gutter-main / 2);
 }
 
 // Execute breakpoint to show screen
@@ -35,6 +35,15 @@
         @include media-breakpoint-up($breakpoint, $breakpoints) {
             max-width: $maxwidth;
         }
+    }
+}
+
+// Make Clear
+@mixin clearfix() {
+    &::after {
+      display: block;
+      clear: both;
+      content: "";
     }
 }
 
@@ -100,6 +109,121 @@
     }
 }
 
+// Custom styles for additional flex alignment options.
+@each $breakpoint in map-keys($breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $show: breakpoint-show($breakpoint, $breakpoints);
+  
+      .flex#{$show}-row            { flex-direction: row !important; }
+      .flex#{$show}-column         { flex-direction: column !important; }
+      .flex#{$show}-row-reverse    { flex-direction: row-reverse !important; }
+      .flex#{$show}-column-reverse { flex-direction: column-reverse !important; }
+  
+      .flex#{$show}-wrap         { flex-wrap: wrap !important; }
+      .flex#{$show}-nowrap       { flex-wrap: nowrap !important; }
+      .flex#{$show}-wrap-reverse { flex-wrap: wrap-reverse !important; }
+      .flex#{$show}-fill         { flex: 1 1 auto !important; }
+      .flex#{$show}-grow-0       { flex-grow: 0 !important; }
+      .flex#{$show}-grow-1       { flex-grow: 1 !important; }
+      .flex#{$show}-shrink-0     { flex-shrink: 0 !important; }
+      .flex#{$show}-shrink-1     { flex-shrink: 1 !important; }
+  
+      .justify-content#{$show}-start   { justify-content: flex-start !important; }
+      .justify-content#{$show}-end     { justify-content: flex-end !important; }
+      .justify-content#{$show}-center  { justify-content: center !important; }
+      .justify-content#{$show}-between { justify-content: space-between !important; }
+      .justify-content#{$show}-around  { justify-content: space-around !important; }
+  
+      .align-items#{$show}-start    { align-items: flex-start !important; }
+      .align-items#{$show}-end      { align-items: flex-end !important; }
+      .align-items#{$show}-center   { align-items: center !important; }
+      .align-items#{$show}-baseline { align-items: baseline !important; }
+      .align-items#{$show}-stretch  { align-items: stretch !important; }
+  
+      .align-content#{$show}-start   { align-content: flex-start !important; }
+      .align-content#{$show}-end     { align-content: flex-end !important; }
+      .align-content#{$show}-center  { align-content: center !important; }
+      .align-content#{$show}-between { align-content: space-between !important; }
+      .align-content#{$show}-around  { align-content: space-around !important; }
+      .align-content#{$show}-stretch { align-content: stretch !important; }
+  
+      .align-self#{$show}-auto     { align-self: auto !important; }
+      .align-self#{$show}-start    { align-self: flex-start !important; }
+      .align-self#{$show}-end      { align-self: flex-end !important; }
+      .align-self#{$show}-center   { align-self: center !important; }
+      .align-self#{$show}-baseline { align-self: baseline !important; }
+      .align-self#{$show}-stretch  { align-self: stretch !important; }
+    }
+}
+
+// Custom styles for display
+@each $breakpoint in map-keys($breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+       $show: breakpoint-show($breakpoint, $breakpoints);
+  
+      .d#{$show}-none         { display: none !important; }
+      .d#{$show}-inline       { display: inline !important; }
+      .d#{$show}-inline-block { display: inline-block !important; }
+      .d#{$show}-block        { display: block !important; }
+      .d#{$show}-table        { display: table !important; }
+      .d#{$show}-table-row    { display: table-row !important; }
+      .d#{$show}-table-cell   { display: table-cell !important; }
+      .d#{$show}-flex         { display: flex !important; }
+      .d#{$show}-inline-flex  { display: inline-flex !important; }
+    }
+}
+
+// Make Margin and Padding
+
+@each $breakpoint in map-keys($breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $show: breakpoint-show($breakpoint, $breakpoints);
+  
+      @each $prop, $abbrev in (margin: m, padding: p) {
+        @each $size, $length in $spacers {
+  
+          .#{$abbrev}#{$show}-#{$size} { #{$prop}: $length !important; }
+          .#{$abbrev}t#{$show}-#{$size},
+          .#{$abbrev}y#{$show}-#{$size} {
+            #{$prop}-top: $length !important;
+          }
+          .#{$abbrev}r#{$show}-#{$size},
+          .#{$abbrev}x#{$show}-#{$size} {
+            #{$prop}-right: $length !important;
+          }
+          .#{$abbrev}b#{$show}-#{$size},
+          .#{$abbrev}y#{$show}-#{$size} {
+            #{$prop}-bottom: $length !important;
+          }
+          .#{$abbrev}l#{$show}-#{$size},
+          .#{$abbrev}x#{$show}-#{$size} {
+            #{$prop}-left: $length !important;
+          }
+        }
+      }
+  
+      // Some special margin utils
+      .m#{$show}-auto { margin: auto !important; }
+      .mt#{$show}-auto,
+      .my#{$show}-auto {
+        margin-top: auto !important;
+      }
+      .mr#{$show}-auto,
+      .mx#{$show}-auto {
+        margin-right: auto !important;
+      }
+      .mb#{$show}-auto,
+      .my#{$show}-auto {
+        margin-bottom: auto !important;
+      }
+      .ml#{$show}-auto,
+      .mx#{$show}-auto {
+        margin-left: auto !important;
+      }
+    }
+}
+
 // Call mixin to run execute
 @include make-columns();
+
 

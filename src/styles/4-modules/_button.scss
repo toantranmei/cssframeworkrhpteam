@@ -1,0 +1,30 @@
+.btn {
+    background-color: $link-color;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    height: 36px;
+    letter-spacing: .5px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .15s, color .15s ease-in-out;
+    white-space: nowrap;
+    &.btn-border:active, &.btn-border:hover, &.btn-border:focus {
+        background-color: $link-color;
+        border-color: $link-color;
+        color: #fff;
+    }
+}
+
+.btn-border {
+    background-color: transparent;
+    border: 2px solid $link-color;
+    color: $link-color;
+    line-height: 34px;
+}
